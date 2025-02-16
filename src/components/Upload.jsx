@@ -6,6 +6,9 @@ export default function Upload() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
+  const [category, setCategory] = useState("images");
+  const [status, setStatus] = useState("public");
+  const [projectPrice, setProjectPrice] = useState("");
 
   // Handle file drop
   const onDrop = useCallback((acceptedFiles) => {
@@ -73,6 +76,38 @@ export default function Upload() {
           value={tags}
           onChange={(e) => setTags(e.target.value)}
         />
+
+        <select
+          className="border border-gray-300 p-3 rounded w-full mb-3 focus:ring-2 focus:ring-green-400"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="images">Images</option>
+          <option value="videos">Videos</option>
+          <option value="documents">Documents</option>
+          <option value="snippets">Snippets</option>
+        </select>
+
+        <select
+          className="border border-gray-300 p-3 rounded w-full mb-3 focus:ring-2 focus:ring-green-400"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+        >
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+          <option value="paid">Paid</option>
+        </select>
+
+          {status === "paid" ?
+            <input
+              type="number"
+              placeholder="Project Price (if applicable)"
+              className="border border-gray-300 p-3 rounded w-full mb-3 focus:ring-2 focus:ring-green-400"
+              value={projectPrice}
+              onChange={(e) => setProjectPrice(e.target.value)}
+            /> : ""
+
+          }
 
         <button className="bg-green-500 text-white px-6 py-3 rounded-full w-full text-lg font-semibold hover:bg-green-600 transition">
           Upload

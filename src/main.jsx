@@ -11,6 +11,9 @@ import UserDashboard from './Pages/UserDashBoard.jsx';
 import FileDetails from './Pages/FileDetails.jsx';
 import EditProfile from './Pages/EditProfile.jsx';
 import UploadPage from './Pages/UploadPAge.jsx';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { Provider } from '@radix-ui/react-tooltip';
+import ApiContext from './context/ApiContext.jsx';
 
 
 const router = createBrowserRouter([{
@@ -55,7 +58,15 @@ const router = createBrowserRouter([{
 const clientId = "488352603070-po2l46k3lh8vg35akbigojjfie5gp9lb.apps.googleusercontent.com"
 
 createRoot(document.getElementById('root')).render(
+<<<<<<< HEAD
   <GoogleOAuthProvider clientId={clientId}>
     <RouterProvider router={router} />
   </GoogleOAuthProvider>
+=======
+<ApiContext>
+  <GoogleOAuthProvider clientId="140659399221-35qoekdg5c8m3guhglc35bvs4mja47gc.apps.googleusercontent.com">
+  <RouterProvider router={router} /></GoogleOAuthProvider>
+
+</ApiContext>
+>>>>>>> ce3da2bcedafde0d47d3a07b8bf426e511871573
 );
