@@ -1,5 +1,5 @@
-
 import { createRoot } from 'react-dom/client'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import "./index.css";
@@ -11,6 +11,7 @@ import UserDashboard from './Pages/UserDashBoard.jsx';
 import FileDetails from './Pages/FileDetails.jsx';
 import EditProfile from './Pages/EditProfile.jsx';
 import UploadPage from './Pages/UploadPAge.jsx';
+
 
 const router = createBrowserRouter([{
   path: "/",
@@ -51,6 +52,10 @@ const router = createBrowserRouter([{
 ]
 }])
 
+const clientId = "488352603070-po2l46k3lh8vg35akbigojjfie5gp9lb.apps.googleusercontent.com"
+
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <GoogleOAuthProvider clientId={clientId}>
+    <RouterProvider router={router} />
+  </GoogleOAuthProvider>
 );
